@@ -6,7 +6,7 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({width: 1708, height: 960})
 
   // and load the index.html of the app.
   win.loadURL(`file://${__dirname}/index.html`)
@@ -21,7 +21,11 @@ function createWindow () {
     // when you should delete the corresponding element.
     win = null
   })
+  win.on('resize', (e, cmd) => {
+    console.log(win.getSize());
+  })
 }
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -44,3 +48,13 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+var options = {
+  width: 1708,
+  height: 960,
+  channel: "Soaryn",
+  //video: "{VIDEO_ID}"
+};
+var player = new Twitch.Player("playerHolder", options);
+player.setVolume(0.3);
+player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
