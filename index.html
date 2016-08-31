@@ -7,19 +7,31 @@
   <body>
     <div id="playerHolder"></div>
     <!-- Chat needs to be lower case -->
+    <iframe
+      id="twitchPlayer"
+      src="http://player.twitch.tv/?channel=bacon_donut&!muted"
+      height="720"
+      width="1280"
+      frameborder="0"
+      scrolling="no"
+      allowfullscreen="true">
+    </iframe>
+
     <iframe frameborder="0" scrolling="no" id="chat_embed" src="https://www.twitch.tv/soaryn/chat" height="500" width="350"></iframe>
   </body>
   <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
 
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
   var options = {
     width: 1708,
     height: 960,
-    channel: "Soaryn",
+    channel: "bacon_donut",
     //video: "{VIDEO_ID}"
   };
   var player = new Twitch.Player("playerHolder", options);
   player.setVolume(0.3);
   player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
-  </script>
+  </script> -->
 </html>
+
+<!-- document.getElementById('twitchPlayer').src="http://player.twitch.tv/?channel=dfieldmark&!muted" -->
