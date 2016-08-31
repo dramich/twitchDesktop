@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, dialog, shell, Menu} = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -49,12 +49,40 @@ app.on('activate', () => {
   }
 })
 
-var options = {
-  width: 1708,
-  height: 960,
-  channel: "Soaryn",
-  //video: "{VIDEO_ID}"
-};
-var player = new Twitch.Player("playerHolder", options);
-player.setVolume(0.3);
-player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
+const contextMenu = Menu.buildFromTemplate([
+  {
+    label: 'About',
+    click() {
+      dialog.showMessageBox({title: "Twitch Desktop", type:"info", message: "A Twitch Desktop app", buttons: ["Close"] });
+    }
+  },
+  {
+    label: 'Website',
+    click() {
+      shell.openExternal("https://github.com/dramich/twitchDesktop/");
+    }
+  },
+  {
+    type: 'separator'
+  },
+  {
+    label: 'Quit',
+    click() {
+      app.quit();
+    }
+  }
+
+]);
+
+Menu.setApplicationMenu(contextMenu);
+
+
+// var options = {
+//   width: 1708,
+//   height: 960,
+//   channel: "bacon_donut",
+//   //video: "{VIDEO_ID}"
+// };
+// var player = new Twitch.Player("playerHolder", options);
+// player.setVolume(0.3);
+// player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
