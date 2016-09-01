@@ -9,7 +9,7 @@ function createWindow () {
   win = new BrowserWindow({width: 1708, height: 960})
 
   // and load the index.html of the app.
-  win.loadURL(`file://${__dirname}/index.html`)
+  win.loadURL(`file://${__dirname}/app/index.html`)
 
   // Open the DevTools.
   win.webContents.openDevTools()
@@ -77,12 +77,12 @@ const contextMenu = Menu.buildFromTemplate([
 Menu.setApplicationMenu(contextMenu);
 
 
-// var options = {
-//   width: 1708,
-//   height: 960,
-//   channel: "bacon_donut",
-//   //video: "{VIDEO_ID}"
-// };
-// var player = new Twitch.Player("playerHolder", options);
-// player.setVolume(0.3);
-// player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
+  // var options = {
+  //   width: 1708,
+  //   height: 960,
+  //   channel: "bacon_donut",
+  //   //video: "{VIDEO_ID}"
+  // };
+  // var player = new Twitch.Player("playerHolder", options);
+  // player.setVolume(0.3);
+  // player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
