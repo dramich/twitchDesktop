@@ -49,34 +49,6 @@ app.on('activate', () => {
   }
 })
 
-const contextMenu = Menu.buildFromTemplate([
-  {
-    label: 'About',
-    click() {
-      dialog.showMessageBox({title: "Twitch Desktop", type:"info", message: "A Twitch Desktop app", buttons: ["Close"] });
-    }
-  },
-  {
-    label: 'Website',
-    click() {
-      shell.openExternal("https://github.com/dramich/twitchDesktop/");
-    }
-  },
-  {
-    type: 'separator'
-  },
-  {
-    label: 'Quit',
-    click() {
-      app.quit();
-    }
-  }
-
-]);
-
-Menu.setApplicationMenu(contextMenu);
-
-
   // var options = {
   //   width: 1708,
   //   height: 960,
