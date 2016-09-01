@@ -1,18 +1,19 @@
 //const ipc = require('ipc');
-const {remote} = require('electron')
+const {ipcRenderer, remote} = require('electron')
 const {Menu, MenuItem} = remote
 
 const contextMenu = Menu.buildFromTemplate([
   {
     label: 'About',
     click() {
-      dialog.showMessageBox({title: "Twitch Desktop", type:"info", message: "A Twitch Desktop app", buttons: ["Close"] });
+      ipcRenderer.send('open-about');
+      // dialog.showMessageBox({title: "Twitch Desktop", type:"info", message: "A Twitch Desktop app", buttons: ["Close"] });
     }
   },
   {
     label: 'Website',
     click() {
-      shell.openExternal("https://github.com/dramich/twitchDesktop/");
+      ipcRenderer.send('open-website');
     }
   },
   {
@@ -21,7 +22,7 @@ const contextMenu = Menu.buildFromTemplate([
   {
     label: 'Quit',
     click() {
-      app.quit();
+      ipcRenderer.send('quit-application');
     }
   }
 ]);

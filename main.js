@@ -1,4 +1,4 @@
-const {app, BrowserWindow, dialog, shell, Menu} = require('electron')
+const {app, BrowserWindow, dialog, ipcMain, shell, Menu} = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -49,12 +49,14 @@ app.on('activate', () => {
   }
 })
 
-  // var options = {
-  //   width: 1708,
-  //   height: 960,
-  //   channel: "bacon_donut",
-  //   //video: "{VIDEO_ID}"
-  // };
-  // var player = new Twitch.Player("playerHolder", options);
-  // player.setVolume(0.3);
-  // player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
+ipcMain.on('open-about', () => {
+  dialog.showMessageBox({title: "Twitch Desktop", type:"info", message: "A Twitch Desktop app", buttons: ["Close"] });
+});
+
+ipcMain.on('quit-application', () => {
+  app.quit();
+});
+
+ipcMain.on('open-website', () => {
+  shell.openExternal('https://github.com/dramich/twitchDesktop/');
+});
