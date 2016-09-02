@@ -6,6 +6,16 @@
   </head>
   <script src="index.js"></script>
   <body>
+    <div id="searchHolder">
+      <select>
+        <option value="channel">Channel</option>
+        <option value="stream">Stream</option>
+      </select>
+      <form>
+        <input type="search" name="twitchSearchBar" placeholder="Enter Search Term">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
     <div id="playerHolder"></div>
     <!-- Chat needs to be lower case -->
     <iframe

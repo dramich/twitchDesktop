@@ -1,5 +1,6 @@
 const {ipcRenderer, remote} = require('electron')
 const {Menu, MenuItem} = remote
+const {$} = require('jquery')
 
 const contextMenu = Menu.buildFromTemplate([
   {
