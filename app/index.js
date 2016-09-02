@@ -1,4 +1,3 @@
-//const ipc = require('ipc');
 const {ipcRenderer, remote} = require('electron')
 const {Menu, MenuItem} = remote
 
@@ -7,7 +6,6 @@ const contextMenu = Menu.buildFromTemplate([
     label: 'About',
     click() {
       ipcRenderer.send('open-about');
-      // dialog.showMessageBox({title: "Twitch Desktop", type:"info", message: "A Twitch Desktop app", buttons: ["Close"] });
     }
   },
   {
