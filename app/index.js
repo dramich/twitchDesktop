@@ -1,12 +1,21 @@
 const {ipcRenderer, remote} = require('electron')
 const {Menu, MenuItem} = remote
-const {$} = require('jquery')
+const $ = require('jQuery');
+const clientID = require('./appkey.json');
 
 const contextMenu = Menu.buildFromTemplate([
   {
     label: 'About',
     click() {
-      ipcRenderer.send('open-about');
+      // ipcRenderer.send('open-about');
+      const root = 'https://api.twitch.tv/kraken/search/streams?q=minecraft&limit=2';
+      $.ajax({
+        url: root,
+        method: 'GET',
+        data: clientID
+      }).then(function(data) {
+        console.log(data);
+      });
     }
   },
   {
