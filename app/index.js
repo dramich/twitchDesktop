@@ -46,3 +46,9 @@ window.addEventListener('contextmenu', (e) => {
 }, false)
 
 Menu.setApplicationMenu(contextMenu);
+
+$('#searchBar').submit(function(event) {
+  // let searchTerm = document.getElementByID('searchBar').value;
+  // console.log(searchTerm);
+  event.preventDefault();
+});
